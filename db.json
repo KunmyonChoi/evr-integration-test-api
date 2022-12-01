@@ -1,0 +1,86 @@
+{
+  "hsptls": [
+      {
+          "hsptlId": "HSP000000000032",
+          "hsptlName": "SKY용인죽전점",
+          "orderList": [
+            {
+              "prsecBasId": "PBA000000000005",
+              "regDttm": "20221213091000",
+              "prtctorId": "GRD0000000002",
+              "prtctorNm": "최근면",
+              "patntId": "PNT0000000002",
+              "patntNm": "허니",
+              "specsDivCd": "D",
+              "detailList": [
+                {
+                  "prsecDtsId": "PDT000000000007",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000001",
+                  "prsecItemNm": "GOT/AST",
+                  "prsecItemCd": "FB001",
+                  "options": []
+                },
+                {
+                  "prsecDtsId": "PDT000000000008",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000002",
+                  "prsecItemNm": "GLU",
+                  "prsecItemCd": "FB002",
+                  "options": []
+                },
+                {
+                  "prsecDtsId": "PDT000000000009",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000003",
+                  "prsecItemNm": "K",
+                  "prsecItemCd": "FB003",
+                  "options": []
+                }
+              ]
+            },
+            {
+              "prsecBasId": "PBA000000000006",
+              "regDttm": "20221214102200",
+              "prtctorId": "GRD0000000002",
+              "prtctorNm": "최근면",
+              "patntId": "PNT0000000002",
+              "patntNm": "허니",
+              "specsDivCd": "D",
+              "detailList": [
+                {
+                  "prsecDtsId": "PDT000000000010",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000001",
+                  "prsecItemNm": "GOT/AST",
+                  "prsecItemCd": "FB001",
+                  "options": []
+                },
+                {
+                  "prsecDtsId": "PDT000000000011",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000002",
+                  "prsecItemNm": "GLU",
+                  "prsecItemCd": "FB002",
+                  "options": []
+                },
+                {
+                  "prsecDtsId": "PDT000000000012",
+                  "dvcId": "DVC000000000001",
+                  "dvcNm": "FUJI NX500",
+                  "prsecItemId": "CDPIM0000000003",
+                  "prsecItemNm": "K",
+                  "prsecItemCd": "FB003",
+                  "options": []
+                }
+              ]
+            }
+          ]
+      }
+  ]
+}

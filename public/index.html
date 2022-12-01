@@ -1,0 +1,123 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <h1>Electronic medical records (EMR) Device Integration API</h1>
+  <p>The EVR is a product name of SKT Web EMR for Veterinary.</p>
+  <p>You can access test api with http://{localhost}:3000/evr-core/v1/ path.</p>
+  <p>Note: This api is not implementing Authorization header.</p>
+
+  <hr>
+
+  Test api call examples.
+  <pre>
+    ### Get work list for 1 day
+
+    GET http://localhost:3000/evr-core/v1/labdevice/order/HSP000000000032 HTTP/1.1
+    content-type: application/json
+    Authorization: token xxx
+    AgentId: AGT0001
+  </pre>
+
+  <pre>
+    ### Post test result
+
+    POST http://localhost:3000/evr-core/v1/labdevice/result/HSP000000000032 HTTP/1.1
+    content-type: application/json
+    Authorization: token xxx
+    AgentId: AGT0001
+
+    {
+      "hsptlId": "HSP000000000032",
+      "prsecBasId": "PBA000000000005",
+      "patntId": "PNT0000000001",
+      "specsDivCd": "C",
+      "endDttm": "20221110153325",
+      "detailList": [
+        {
+          "prsecDtsId":"PDT000000000007",
+          "dvcId": "DVC000000000001",
+          "prsecItemId": "CDPIM0000000001",
+          "prsecItemNm": "Fibrinogen",
+          "prsecItemCd": "FB001",
+          "prsecRsltVal": 15.0,
+          "unit": "mg/dL",
+          "prsecRsltDivCd": "10",
+          "minVal": 20.0,
+          "maxVal": 40.0,
+          "options": [
+            {
+              "optnKey" : "key1",
+              "optnVal" : "val1"
+            }
+          ]
+        }
+      ]
+    }
+  </pre>
+
+  <pre>
+    ### Report device status
+
+    PUT http://localhost:3000/evr-core/v1/labdevice/devicestatus/HSP000000000032 HTTP/1.1
+    content-type: application/json
+    Authorization: token xxx
+    AgentId: AGT0001
+
+    {
+      "hsptlId": "HSP000000000032",
+      "reqDttm": "20221110160000",
+      "statusList": [
+        {
+          "dvcId": "DVC000000000005",
+          "stts": "20",
+          "sttsMessage": "헬스체크 실패"
+        }
+      ]
+    }
+  </pre>
+
+  <pre>
+    ### Report test progress
+
+    PUT http://localhost:3000/evr-core/v1/labdevice/workstatus/HSP000000000032 HTTP/1.1
+    content-type: application/json
+    Authorization: token xxx
+    AgentId: AGT0001
+
+    {
+      "hsptlId": "HSP000000000032",
+      "prsecBasId": "PBA000000000005",
+      "evtDttm": "20221110153325",
+      "stts": "10",
+      "detailList": [
+        {
+          "prsecDtsId": "PDT000000000007",
+          "stts": "10"
+        }
+      ]
+    }
+  </pre>
+
+  <pre>
+    ### Report agent start
+
+    PUT http://localhost:3000/evr-core/v1/labdevice/agentstarted/HSP000000000032 HTTP/1.1
+    content-type: application/json
+    Authorization: token xxx
+    AgentId: AGT0001
+
+    {
+      "hsptlId": "HSP000000000032",
+      "evtDttm": "20221110153325"
+    }
+  </pre>
+
+  <hr>
+</body>
+
+</html>
