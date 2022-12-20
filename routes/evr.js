@@ -72,11 +72,11 @@ router.post('/labdevice/result/:hsptlId', function(req, res, next) {
 
   // Optional
   let prsecBasId = req.body.prsecBasId
-
-  // Mandatory
-  let hsptlId = req.body.hsptlId
   let patntId = req.body.patntId
   let specsDivCd = req.body.specsDivCd
+  
+  // Mandatory
+  let hsptlId = req.body.hsptlId
   let endDttm = req.body.endDttm
   let detailList = req.body.detailList
 
@@ -84,8 +84,6 @@ router.post('/labdevice/result/:hsptlId', function(req, res, next) {
   if (!req.params.hsptlId) errstr.push("params.hsptlId is mandatory")
   if (!(req.params.hsptlId == hsptlId)) errstr.push("params.hsptlId and body.hsptlId should be the same")
   
-  if (!patntId) errstr.push("patntId is mandatory")
-  if (!specsDivCd) errstr.push("specsDivCd is mandatory")
   if (!endDttm) errstr.push("endDttm is mandatory")
   if (!detailList) {
     errstr.push("detailList is mandatory")
@@ -96,23 +94,27 @@ router.post('/labdevice/result/:hsptlId', function(req, res, next) {
       spellcheck(element, ['prsecDtsId', 'dvcId', 'prsecItemId', 'prsecItemNm', 'prsecItemCd', 'prsecRsltVal', 'unit', 'prsecRsltDivCd', 'minVal', 'maxVal', 'options'], errstr)
 
       // Optional
-      let dvcId = element.dvcId
+      let prsecDtsId = element.prsecDtsId
       let prsecItemId = element.prsecItemId
-      let prsecItemNm = element.prsecItemNm
-      let prsecItemCd = element.prsecItemCd
-      let prsecRsltVal = element.prsecRsltVal
       let unit = element.unit
-      let prsecRsltDivCd = element.prsecRsltDivCd
+      let prsecRsltDivCd = element.prsecRsltDivCd // 판정결과
       let minVal = element.minVal
       let maxVal = element.maxVal
 
       // Mandatory
-      let prsecDtsId = element.prsecDtsId
+      let dvcId = element.dvcId
+      let prsecItemNm = element.prsecItemNm
+      let prsecItemCd = element.prsecItemCd
+      let prsecRsltVal = element.prsecRsltVal
+      
 
-      if (!prsecDtsId) errstr.push("detailList.prsecDtsId is mandatory")
+      if (!dvcId) errstr.push("detailList.dvcId is mandatory")
+      if (!prsecItemNm) errstr.push("detailList.prsecItemNm is mandatory")
+      if (!prsecItemCd) errstr.push("detailList.prsecItemCd is mandatory")
+      if (!prsecRsltVal) errstr.push("detailList.prsecRsltVal is mandatory")
 
       // Check number
-      if (typeof(prsecRsltVal) !== "number") errstr.push("detailList.prsecRsltVal should be a number")
+      if (typeof(prsecRsltVal) !== "string") errstr.push("detailList.prsecRsltVal should be a string")
       if (typeof(minVal) !== "number") errstr.push("detailList.minVal should be a number")
       if (typeof(maxVal) !== "number") errstr.push("detailList.maxVal should be a number")
     })
