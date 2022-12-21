@@ -334,7 +334,7 @@ router.put('/labdevice/agentstarted/:hsptlId', function(req, res, next) {
       }
     }
     console.log(util.inspect(data, false, null, true))
-    res.json()    
+    res.json(data)    
   } 
 });
 
