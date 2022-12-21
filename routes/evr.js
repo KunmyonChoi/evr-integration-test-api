@@ -131,7 +131,17 @@ router.post('/labdevice/result/:hsptlId', function(req, res, next) {
     // Not save result to db. Just debug it
     res.json({
       "resultCode": "DX-0000",
-      "resultMessage": "success"
+      "resultMessage": "success",
+      "debug": {
+        "prsecBasId": req.body.prsecBasId,
+        "patntId": req.body.patntId,
+        "specsDivCd": req.body.specsDivCd,
+        
+        // Mandatory
+        "hsptlId": req.body.hsptlId,
+        "endDttm": req.body.endDttm,
+        "detailList" : req.body.detailList
+      }
     })    
   } 
 });
@@ -193,7 +203,12 @@ router.put('/labdevice/devicestatus/:hsptlId', function(req, res, next) {
     // Not save result to db. Just debug it
     res.json({
       "resultCode": "DX-0000",
-      "resultMessage": "success"
+      "resultMessage": "success",
+      "debug": {
+        "hsptlId" : req.body.hsptlId,
+        "reqDttm" : req.body.reqDttm,
+        "statusList" : req.body.statusList,
+      }
     })    
   } 
 });
@@ -255,7 +270,14 @@ router.put('/labdevice/workstatus/:hsptlId', function(req, res, next) {
     // Not save result to db. Just debug it
     res.json({
       "resultCode": "DX-0000",
-      "resultMessage": "success"
+      "resultMessage": "success",
+      "debug": {
+        "hsptlId" : req.body.hsptlId,
+        "prsecBasId" : req.body.prsecBasId,
+        "evtDttm" : req.body.evtDttm,
+        "stts" : req.body.stts,
+        "detailList" : req.body.detailList
+      }
     })    
   } 
 });
@@ -298,7 +320,11 @@ router.put('/labdevice/agentstarted/:hsptlId', function(req, res, next) {
     // Not save result to db. Just debug it
     res.json({
       "resultCode": "DX-0000",
-      "resultMessage": "success"
+      "resultMessage": "success",
+      "debug": {
+        "hsptlId" : req.body.hsptlId,
+        "evtDttm" : req.body.evtDttm
+      }
     })    
   } 
 });
